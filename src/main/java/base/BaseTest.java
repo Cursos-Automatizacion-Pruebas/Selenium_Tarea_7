@@ -31,7 +31,7 @@ public abstract class BaseTest {
         initPages();
 
         commonFlows = new CommonFlows(driver);
-        commonFlows.goToIndex();
+        commonFlows.goToSignUp();
     }
 
     @AfterMethod(alwaysRun = true)

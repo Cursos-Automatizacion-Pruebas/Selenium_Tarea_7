@@ -17,5 +17,14 @@
             <package name="signup"/>
         </packages>
     </test>
-
+   <test name="signin">
+        <packages>
+            <package name="signin"/>
+        </packages>
+    </test>
+    <test name="settings">
+        <packages>
+            <package name="settings"/>
+        </packages>
+    </test>
 </suite>

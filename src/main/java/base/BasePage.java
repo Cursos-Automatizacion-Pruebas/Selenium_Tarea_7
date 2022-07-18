@@ -66,6 +66,9 @@ public abstract class BasePage {
     }
 
     protected String getText(By locator) {
+        if (locator == null) {
+            System.out.println("El locator no se encuentra");
+        }
         return findElement(locator).getText();
     }
 
@@ -74,8 +77,7 @@ public abstract class BasePage {
     }
 
     protected boolean verifyIsDisplayed(By locator) {
-        var aaa=findElement(locator).isDisplayed();
-        return aaa;
+        return findElement(locator).isDisplayed();
     }
 
     protected boolean verifyIsEnabled(By locator) {
