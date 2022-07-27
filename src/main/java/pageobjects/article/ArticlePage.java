@@ -34,7 +34,7 @@ public class ArticlePage extends BasePage {
         log.info("Verifying article About Input is displayed");
         softAssert.assertTrue(verifyIsDisplayed(articleAboutInput), "article About Input is not displayed");
 
-        log.info("Verifying article Detail Input is displayed");
+        log.info("Verifying Article Detail Input is displayed");
         softAssert.assertTrue(verifyIsDisplayed(articleDetailInput), "article Detail Input is not displayed");
 
         log.info("Verifying tag Input is displayed");
