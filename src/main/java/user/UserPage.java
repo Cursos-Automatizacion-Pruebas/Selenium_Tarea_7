@@ -12,6 +12,7 @@ public class UserPage extends BasePage {
     private String password;
 
     private final By settingsButton = By.cssSelector("a[href='#settings']");
+    private final By newPost= By.cssSelector("a[href='#editor']");
 
     public void setUsername(String username) {
         this.username = username;
@@ -24,14 +25,6 @@ public class UserPage extends BasePage {
 
     public UserPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override
@@ -54,25 +47,13 @@ public class UserPage extends BasePage {
         Assert.assertTrue(verifyIsDisplayed(usernameLabel()));
     }
 
-    public void verifyUsernameIsDisplayed(String username) {
-        log.info("Verifying username label  is displayed");
-        Assert.assertEquals(verifyIsDisplayed(usernameLabel()), username);
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void clickOnSettingsButton() {
         log.info("Clicking on setttings Button");
-        System.out.println("Antes de dar clic a setttings");
         click(settingsButton);
-        System.out.println("Despues de dar clic setttings");
     }
 
-
+    public void clickOnNewPostButton() {
+        log.info("Clicking on new post Button");
+        click(newPost);
+    }
 }

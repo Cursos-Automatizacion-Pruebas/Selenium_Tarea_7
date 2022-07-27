@@ -12,7 +12,7 @@
         <listener class-name="utilities.listeners.SuiteListeners"/>
     </listeners>
 
-    <test name="signup">
+   <!--<test name="signup">
         <packages>
             <package name="signup"/>
         </packages>
@@ -21,10 +21,15 @@
         <packages>
             <package name="signin"/>
         </packages>
-    </test>
+    </test>-->
     <test name="settings">
         <packages>
             <package name="settings"/>
         </packages>
     </test>
+    <!--<test name="article">
+        <packages>
+            <package name="article"/>
+        </packages>
+    </test>-->
 </suite>

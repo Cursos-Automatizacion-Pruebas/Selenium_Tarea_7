@@ -34,7 +34,6 @@ public class SignUpTest extends BaseTest {
         userPage.waitPageToLoad();
         userPage.setUsername(credentials.getUser());
         userPage.verifyUsernameIsDisplayed();
-        System.out.println("user: " + credentials.getUser() + " " + "email: " + credentials.getEmail() + "password:" + credentials.getPassword());
     }
 
     @Test(groups = {regression}, dataProvider = BAD_USER_INFO_DP,

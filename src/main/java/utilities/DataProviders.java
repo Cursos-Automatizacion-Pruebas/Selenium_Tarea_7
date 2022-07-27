@@ -1,6 +1,8 @@
 package utilities;
 
+import models.ArticleDataModel;
 import models.CredentialsModel;
+import models.SettingsDataModel;
 import models.UserDataModel;
 import org.testng.annotations.DataProvider;
 
@@ -26,6 +28,14 @@ public class DataProviders {
 
     public UserDataModel getUserData() {
         return new UserDataModel();
+    }
+
+    public ArticleDataModel getArticleData() {
+        return new ArticleDataModel();
+    }
+
+    public SettingsDataModel getSettingsData() {
+        return new SettingsDataModel();
     }
 
     @DataProvider(name = BAD_USER_INFO_DP)

@@ -48,6 +48,7 @@ public abstract class BasePage {
     }
 
     protected void type(By locator, String text) {
+        findElement(locator).clear();
         findElement(locator).sendKeys(text);
     }
 

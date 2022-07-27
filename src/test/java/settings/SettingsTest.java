@@ -17,8 +17,9 @@ public class SettingsTest extends BaseTest {
     private UserPage userPage;
 
     @BeforeMethod(alwaysRun = true)
-    public void setUp() throws InterruptedException {
-        commonFlows.loginValidUser();
+    public void setUp(){
+        //commonFlows.loginValidUser();
+        commonFlows.goToSettings();
     }
 
     @Override
@@ -33,11 +34,22 @@ public class SettingsTest extends BaseTest {
         settingsPage.verifyPage();
     }
 
-    @Test(groups = {regression})
+    /*@Test(groups = {regression})
     public void verifyHomePageIsDisplayed(){
         userPage.waitPageToLoad();
         userPage.clickOnSettingsButton();
         settingsPage.clickOnLogoutButton();
         homePage.waitPageToLoad();
+    }*/
+
+    @Test(groups = {regression})
+    public void verifyBioIsDisplayed() throws InterruptedException {
+        var settings = new DataProviders().getSettingsData();
+        settingsPage.fillSettings(settings.getUrlProfile(), settings.getBio(),settings.getPassword());
+        userPage.waitPageToLoad();
+        userPage.clickOnSettingsButton();
+        settingsPage.waitPageToLoad();
+        System.out.println("bio es: " + settings.getBio());
+        settingsPage.verifyBioText("Your Settings");
     }
 }
