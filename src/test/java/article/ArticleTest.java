@@ -26,7 +26,7 @@ public class ArticleTest extends BaseTest {
         postCommentPage = new PostCommentPage(driver);
     }
 
-    /*@Test(groups = {regression})
+    @Test(groups = {regression})
     public void verifyArticlePageTest() {
         articlePage.verifyPage();
     }
@@ -38,16 +38,16 @@ public class ArticleTest extends BaseTest {
         postCommentPage.waitPageToLoad();
         postCommentPage.setTitle(articles.getTitulo());
         postCommentPage.verifyTitleIsDisplayed();
-    }*/
+    }
 
     @Test(groups = {regression})
     public void verifyTitleEditIsDisplayed() {
         commonFlows.fillArticle();
         postCommentPage.clickOnEditButton();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        articlePage.verifyPage();
         var articles = new DataProviders().getArticleData();
         articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         postCommentPage.waitPageToLoad();
         postCommentPage.setTitle(articles.getTitulo());
         postCommentPage.verifyTitleIsDisplayed();
