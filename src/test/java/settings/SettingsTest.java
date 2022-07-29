@@ -5,11 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.Home.HomePage;
 import pageobjects.settings.SettingsPage;
-import pageobjects.signin.SignInPage;
-import user.UserPage;
+import pageobjects.user.UserPage;
 import utilities.DataProviders;
-
-import java.time.Duration;
 
 public class SettingsTest extends BaseTest {
     private SettingsPage settingsPage;
@@ -17,7 +14,7 @@ public class SettingsTest extends BaseTest {
     private UserPage userPage;
 
     @BeforeMethod(alwaysRun = true)
-    public void setUp(){
+    public void setUp() {
         //commonFlows.loginValidUser();
         commonFlows.goToSettings();
     }
@@ -25,11 +22,11 @@ public class SettingsTest extends BaseTest {
     @Override
     protected void initPages() {
         userPage = new UserPage(driver);
-        settingsPage=new SettingsPage(driver);
-        homePage=new HomePage(driver);
+        settingsPage = new SettingsPage(driver);
+        homePage = new HomePage(driver);
     }
 
-    @Test(groups = {smoke})
+    @Test(groups = {regression})
     public void verifySettingsPageTest() {
         settingsPage.verifyPage();
     }
@@ -43,13 +40,12 @@ public class SettingsTest extends BaseTest {
     }*/
 
     @Test(groups = {regression})
-    public void verifyBioIsDisplayed() throws InterruptedException {
+    public void verifyBioIsDisplayed() {
         var settings = new DataProviders().getSettingsData();
-        settingsPage.fillSettings(settings.getUrlProfile(), settings.getBio(),settings.getPassword());
+        settingsPage.fillSettings(settings.getUrlProfile(), settings.getBio(), settings.getPassword());
         userPage.waitPageToLoad();
         userPage.clickOnSettingsButton();
         settingsPage.waitPageToLoad();
-        System.out.println("bio es: " + settings.getBio());
-        settingsPage.verifyBioText("Your Settings");
+        settingsPage.verifyBioText(settings.getBio());
     }
 }

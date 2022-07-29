@@ -3,17 +3,15 @@ package pageobjects.article;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 public class ArticlePage extends BasePage {
     private final By titleInput = By.cssSelector("input[placeholder='Article Title']");
-    private final By articleAboutInput =with(By.tagName("input")).below(titleInput);
+    private final By articleAboutInput = with(By.tagName("input")).below(titleInput);
     private final By articleDetailInput = By.cssSelector("textarea[placeholder='Write your article (in markdown)']");
-    //private final By articleDetailInput=with(By.tagName("input")).below(articleAboutInput);
-    private final By tagInput= By.cssSelector("input[placeholder='Enter tags']");
-    private final By publishButton= By.cssSelector("button[type='button']");
+    private final By tagInput = By.cssSelector("input[placeholder='Enter tags']");
+    private final By publishButton = By.cssSelector("button[type='button']");
 
     public ArticlePage(WebDriver driver) {
         super(driver);
@@ -21,7 +19,7 @@ public class ArticlePage extends BasePage {
 
     @Override
     public void waitPageToLoad() {
-        waitPage(titleInput,this.getClass().getSimpleName());
+        waitPage(titleInput, this.getClass().getSimpleName());
     }
 
     @Override
@@ -46,7 +44,7 @@ public class ArticlePage extends BasePage {
         softAssert.assertAll();
     }
 
-    public void fillLogin(String titulo, String asunto,String detalle,String etiqueta   ) {
+    public void fillArticle(String titulo, String asunto, String detalle, String etiqueta) {
         log.info("Filling titulo");
         type(titleInput, titulo);
 

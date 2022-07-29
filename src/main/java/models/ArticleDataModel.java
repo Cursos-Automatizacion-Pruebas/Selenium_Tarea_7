@@ -11,9 +11,9 @@ public class ArticleDataModel {
     public ArticleDataModel() {
         var faker = new Faker();
         titulo = faker.name().name();
-        asunto=faker.funnyName().name();
-        detalle=faker.company().name();
-        etiqueta=faker.team().name();
+        asunto = faker.funnyName().name();
+        detalle = faker.company().name();
+        etiqueta = faker.team().name();
     }
 
     public String getTitulo() {
@@ -28,7 +28,7 @@ public class ArticleDataModel {
         return detalle;
     }
 
-   public String getEtiqueta() {
+    public String getEtiqueta() {
         return etiqueta;
     }
 }

@@ -1,5 +1,6 @@
 package utilities;
 
+import models.CommentsModel;
 import models.CredentialsModel;
 import models.ErrorMessageModel;
 
@@ -26,6 +27,17 @@ public class MapParser {
 
         for (var credential : credentialsList) {
             map.put(credential.getKey(), credential);
+        }
+        return map;
+    }
+
+    public HashMap<String, CommentsModel> getCommentsMap() {
+        log.debug("Creating Comments map");
+        var map = new HashMap<String, CommentsModel>();
+        var commentsList = new ExcelReader().getComments();
+
+        for (var comment : commentsList) {
+            map.put(comment.getKey(), comment);
         }
         return map;
     }

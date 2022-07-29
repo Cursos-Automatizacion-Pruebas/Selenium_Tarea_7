@@ -1,6 +1,7 @@
 package utilities;
 
 import com.poiji.bind.Poiji;
+import models.CommentsModel;
 import models.CredentialsModel;
 import models.ErrorMessageModel;
 
@@ -19,5 +20,10 @@ public class ExcelReader {
     public List<CredentialsModel> getCredentials() {
         log.debug("Reading crendentials from excel: " + EXCEL_PATH);
         return Poiji.fromExcel(new File(EXCEL_PATH), CredentialsModel.class);
+    }
+
+    public List<CommentsModel> getComments() {
+        log.debug("Reading Comments from excel: " + EXCEL_PATH);
+        return Poiji.fromExcel(new File(EXCEL_PATH), CommentsModel.class);
     }
 }

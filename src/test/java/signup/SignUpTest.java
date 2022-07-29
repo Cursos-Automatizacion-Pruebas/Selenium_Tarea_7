@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.signin.SignInPage;
 import pageobjects.signup.SignUpPage;
-import user.UserPage;
+import pageobjects.user.UserPage;
 import utilities.DataProviders;
 
 import java.time.Duration;
@@ -22,7 +22,7 @@ public class SignUpTest extends BaseTest {
         commonFlows.goToSignUp();
     }
 
-    @Test(groups = {smoke})
+    @Test(groups = {regression})
     public void verifyLoginPageTest() {
         signUpPage.verifyPage();
     }
@@ -55,6 +55,6 @@ public class SignUpTest extends BaseTest {
     protected void initPages() {
         userPage = new UserPage(driver);
         signUpPage = new SignUpPage(driver);
-        signInPage=new SignInPage(driver);
+        signInPage = new SignInPage(driver);
     }
 }

@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.signin.SignInPage;
 import pageobjects.signup.SignUpPage;
-import user.UserPage;
+import pageobjects.user.UserPage;
 import utilities.DataProviders;
 
 public class SignInTest extends BaseTest {
@@ -18,7 +18,7 @@ public class SignInTest extends BaseTest {
         commonFlows.goToSignIn();
     }
 
-    @Test(groups = {smoke})
+    @Test(groups = {regression})
     public void verifyLoginPageTest() {
         signInPage.verifyPage();
     }

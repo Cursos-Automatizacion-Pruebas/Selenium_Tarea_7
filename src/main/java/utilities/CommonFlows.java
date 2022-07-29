@@ -2,10 +2,12 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 import pageobjects.Home.HomePage;
+import pageobjects.article.ArticlePage;
+import pageobjects.article.PostCommentPage;
 import pageobjects.settings.SettingsPage;
 import pageobjects.signin.SignInPage;
 import pageobjects.signup.SignUpPage;
-import user.UserPage;
+import pageobjects.user.UserPage;
 
 import java.time.Duration;
 
@@ -61,5 +63,14 @@ public class CommonFlows {
         settingsPage.waitPageToLoad();
     }
 
+    public void fillArticle() {
+        var articlePage = new ArticlePage(driver);
+        var postCommentPage= new PostCommentPage(driver);
+        var articles = new DataProviders().getArticleData();
 
+        articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
+        postCommentPage.waitPageToLoad();
+        postCommentPage.setTitle(articles.getTitulo());
+        postCommentPage.getTextTitle();
+    }
 }

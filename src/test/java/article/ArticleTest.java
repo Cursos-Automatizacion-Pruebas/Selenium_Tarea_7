@@ -1,6 +1,8 @@
 package article;
 
 import base.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.article.ArticlePage;
@@ -20,15 +22,32 @@ public class ArticleTest extends BaseTest {
 
     @Override
     protected void initPages() {
-    articlePage=new ArticlePage(driver);
-        postCommentPage=new PostCommentPage(driver);
+        articlePage = new ArticlePage(driver);
+        postCommentPage = new PostCommentPage(driver);
     }
 
-    @Test(groups = {regression})
+    /*@Test(groups = {regression})
+    public void verifyArticlePageTest() {
+        articlePage.verifyPage();
+    }
+
+   @Test(groups = {regression})
     public void verifyTitleIsDisplayed() {
         var articles = new DataProviders().getArticleData();
-        articlePage.fillLogin(articles.getTitulo(),articles.getAsunto(),articles.getDetalle(),articles.getEtiqueta());
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
+        postCommentPage.waitPageToLoad();
+        postCommentPage.setTitle(articles.getTitulo());
+        postCommentPage.verifyTitleIsDisplayed();
+    }*/
+
+    @Test(groups = {regression})
+    public void verifyTitleEditIsDisplayed() {
+        commonFlows.fillArticle();
+        postCommentPage.clickOnEditButton();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        var articles = new DataProviders().getArticleData();
+        articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         postCommentPage.waitPageToLoad();
         postCommentPage.setTitle(articles.getTitulo());
         postCommentPage.verifyTitleIsDisplayed();

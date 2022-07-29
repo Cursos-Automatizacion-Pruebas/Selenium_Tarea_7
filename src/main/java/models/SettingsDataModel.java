@@ -8,8 +8,8 @@ public class SettingsDataModel {
     private final String password;
 
     public SettingsDataModel() {
-        var faker= new Faker();
-        urlProfile=faker.internet().url();
+        var faker = new Faker();
+        urlProfile = faker.internet().url();
         bio = faker.random().hex();
         password = faker.internet().password();
 

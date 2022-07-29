@@ -1,4 +1,4 @@
-package user;
+package pageobjects.user;
 
 import base.BasePage;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ public class UserPage extends BasePage {
     private String password;
 
     private final By settingsButton = By.cssSelector("a[href='#settings']");
-    private final By newPost= By.cssSelector("a[href='#editor']");
+    private final By newPost = By.cssSelector("a[href='#editor']");
 
     public void setUsername(String username) {
         this.username = username;

@@ -1,9 +1,6 @@
 package utilities;
 
-import models.ArticleDataModel;
-import models.CredentialsModel;
-import models.SettingsDataModel;
-import models.UserDataModel;
+import models.*;
 import org.testng.annotations.DataProvider;
 
 public class DataProviders {
@@ -14,6 +11,12 @@ public class DataProviders {
         log.debug("Cogiendo las credenciales válidas");
         var credentialsMap = new MapParser().getCredentialsMap();
         return credentialsMap.get("1");
+    }
+
+    public CommentsModel getCommentsModel() {
+        log.debug("Cogiendo los Comments");
+        var commentsMap = new MapParser().getCommentsMap();
+        return commentsMap.get("1");
     }
 
     /*public CredentialsModel getLockedCredentials() {

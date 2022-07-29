@@ -4,17 +4,13 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import javax.accessibility.AccessibleAction;
-
-public class SettingsPage extends BasePage{
-    private final By logoutbutton =By.cssSelector(".btn-outline-danger");
-    private final By urlProfileInput =By.cssSelector("input[placeholder='URL of profile picture']");
-    private final By bioInput =By.cssSelector("textarea[placeholder='Short bio about you']");
-    private final By passwordInput =By.cssSelector("input[placeholder='New Password']");
+public class SettingsPage extends BasePage {
+    private final By logoutbutton = By.cssSelector(".btn-outline-danger");
+    private final By urlProfileInput = By.cssSelector("input[placeholder='URL of profile picture']");
+    private final By bioInput = By.cssSelector("textarea[placeholder='Short bio about you']");
+    private final By passwordInput = By.cssSelector("input[placeholder='New Password']");
     private final By updateButton = By.cssSelector("button[type='submit']");
     private final By yourSetting = By.cssSelector(".text-xs-center");
 
@@ -24,7 +20,7 @@ public class SettingsPage extends BasePage{
 
     @Override
     public void waitPageToLoad() {
-        waitPage(logoutbutton,this.getClass().getSimpleName());
+        waitPage(logoutbutton, this.getClass().getSimpleName());
     }
 
     @Override
@@ -49,14 +45,14 @@ public class SettingsPage extends BasePage{
         softAssert.assertAll();
     }
 
-    public void clickOnLogoutButton(){
+    public void clickOnLogoutButton() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
         log.info("Clicking on Logout Button");
         click(logoutbutton);
     }
 
-    public void fillSettings(String url,String bio, String password) {
+    public void fillSettings(String url, String bio, String password) {
         log.info("Filling url");
         type(urlProfileInput, url);
 
@@ -72,14 +68,9 @@ public class SettingsPage extends BasePage{
         click(updateButton);
     }
 
-    public void verifyBioText(String text) throws InterruptedException {
+    public void verifyBioText(String text) {
         log.info("Verifying bio content");
-        Thread.sleep(10000);
-        //var aa= getText(bioInput);
-       // System.out.println("actual"+ aa);
         Assert.assertEquals(getText(yourSetting), text);
-        Thread.sleep(10000);
     }
-
 }
 
