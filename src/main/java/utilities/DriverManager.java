@@ -7,7 +7,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
@@ -27,9 +26,7 @@ public class DriverManager {
         switch (browser) {
             case "CHROME":
                 ChromeDriverManager.chromedriver().setup();
-                ChromeOptions option = new ChromeOptions();
-                option.addArguments("--headless");
-                return new ChromeDriver(option);
+                return new ChromeDriver();
             case "EDGE":
                 EdgeDriverManager.edgedriver().setup();
                 return new EdgeDriver();

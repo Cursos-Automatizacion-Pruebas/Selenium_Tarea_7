@@ -1,5 +1,6 @@
 package base;
 
+import com.automation.remarks.testng.UniversalVideoListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import utilities.CommonFlows;
 import utilities.DriverManager;
 import utilities.Logs;
 
-@Listeners({utilities.listeners.TestListeners.class, utilities.listeners.SuiteListeners.class})
+@Listeners({utilities.listeners.TestListeners.class, utilities.listeners.SuiteListeners.class, UniversalVideoListener.class})
 public abstract class BaseTest {
     protected WebDriver driver;
     protected final Logs log = new Logs();
@@ -31,7 +32,7 @@ public abstract class BaseTest {
         initPages();
 
         commonFlows = new CommonFlows(driver);
-        commonFlows.goToIndex();
+        commonFlows.goToSignUp();
     }
 
     @AfterMethod(alwaysRun = true)

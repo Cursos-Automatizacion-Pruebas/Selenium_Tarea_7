@@ -13,9 +13,23 @@
     </listeners>
 
     <test name="signup">
+         <packages>
+             <package name="signup"/>
+         </packages>
+     </test>
+    <test name="signin">
+         <packages>
+             <package name="signin"/>
+         </packages>
+     </test>
+    <test name="settings">
         <packages>
-            <package name="signup"/>
+            <package name="settings"/>
         </packages>
     </test>
-
+    <test name="article">
+        <packages>
+            <package name="article"/>
+        </packages>
+    </test>
 </suite>

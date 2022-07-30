@@ -1,4 +1,4 @@
-package pageobjects.signup;
+package pageobjects.user;
 
 import base.BasePage;
 import org.openqa.selenium.By;
@@ -8,14 +8,16 @@ import org.testng.Assert;
 public class UserPage extends BasePage {
 
     private String username;
+
     private final By settingsButton = By.cssSelector("a[href='#settings']");
+    private final By newPost = By.cssSelector("a[href='#editor']");
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    private By usernameLabel(){
-        var locator= String.format("//a[text()='%s']",username);
+    private By usernameLabel() {
+        var locator = String.format("//a[text()='%s']", username);
         return By.xpath(locator);
     }
 
@@ -41,5 +43,15 @@ public class UserPage extends BasePage {
     public void verifyUsernameIsDisplayed() {
         log.info("Verifying username label  is displayed");
         Assert.assertTrue(verifyIsDisplayed(usernameLabel()));
+    }
+
+    public void clickOnSettingsButton() {
+        log.info("Clicking on setttings Button");
+        click(settingsButton);
+    }
+
+    public void clickOnNewPostButton() {
+        log.info("Clicking on new post Button");
+        click(newPost);
     }
 }
