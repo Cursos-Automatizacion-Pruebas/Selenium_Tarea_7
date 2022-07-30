@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.article.ArticlePage;
 import pageobjects.article.PostCommentPage;
+import pageobjects.profile.PerfilPage;
+import pageobjects.user.UserPage;
 import utilities.DataProviders;
 
 import java.time.Duration;
@@ -14,6 +16,8 @@ import java.time.Duration;
 public class ArticleTest extends BaseTest {
     private ArticlePage articlePage;
     private PostCommentPage postCommentPage;
+    private UserPage userPage;
+    private PerfilPage perfilPage;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -24,6 +28,8 @@ public class ArticleTest extends BaseTest {
     protected void initPages() {
         articlePage = new ArticlePage(driver);
         postCommentPage = new PostCommentPage(driver);
+        userPage = new UserPage(driver);
+        perfilPage=new PerfilPage(driver);
     }
 
     @Test(groups = {regression})
@@ -43,7 +49,7 @@ public class ArticleTest extends BaseTest {
     @Test(groups = {regression})
     public void verifyTitleEditIsDisplayed() {
         commonFlows.fillArticle();
-        postCommentPage.clickOnEditButton();
+        postCommentPage.clickOnEditArticleButton();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         articlePage.verifyPage();
         var articles = new DataProviders().getArticleData();
@@ -51,5 +57,15 @@ public class ArticleTest extends BaseTest {
         postCommentPage.waitPageToLoad();
         postCommentPage.setTitle(articles.getTitulo());
         postCommentPage.verifyTitleIsDisplayed();
+    }
+
+    @Test(groups = {regression})
+    public void verifyArticleWasDelete() {
+        commonFlows.fillArticle();
+        postCommentPage.clickOnDeleteArticleButton();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        perfilPage.clickOnHaveAccountlink();
+        var articles = new DataProviders().getArticleData();
+        perfilPage.verifyArticleWasDelete(articles.getTitulo());
     }
 }

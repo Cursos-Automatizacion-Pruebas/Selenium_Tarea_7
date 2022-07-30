@@ -18,7 +18,8 @@ public class PostCommentPage extends BasePage {
     private final By postCommentButtton = By.cssSelector("Button[type='submit']");
     private final By viewComment = By.cssSelector("p[class='card-text']");
     private final By deleteButton = By.cssSelector("i[class='ion-trash-a']");
-    private final By editButton= By.cssSelector(".btn-outline-secondary");
+    private final By editArticleButton= By.cssSelector(".btn-outline-secondary");
+    private final By deleteArticleButton= By.cssSelector(".btn-outline-danger");
 
     private By titleLabel() {
         var locator = String.format("//h1[text()='%s']", title);
@@ -91,16 +92,20 @@ public class PostCommentPage extends BasePage {
         Assert.assertFalse(verifyIsDisplayed(viewComment));
     }
 
-    public void clickOnEditButton() {
-        log.info("Clicking on edit Button");
-        click(editButton);
+    public void clickOnEditArticleButton() {
+        log.info("Clicking on edit Article Button");
+        click(editArticleButton);
+    }
+
+    public void clickOnDeleteArticleButton() {
+        log.info("Clicking on delete Article Button");
+        click(deleteArticleButton);
     }
 
     public void getTextTitle() {
-        //var wait=new WebDriverWait(driver,Duration.ofSeconds(5));
         log.info("Verifying Title is displayed");
         waitVisibility(titleLabel());
-
-        //wait.until(ExpectedConditions.visibilityOfElementLocated());
     }
+
+
 }

@@ -56,4 +56,10 @@ public class UserPage extends BasePage {
         log.info("Clicking on new post Button");
         click(newPost);
     }
+
+    public void clickOnUserName() {
+        log.info("Clicking on user name Button");
+        click(usernameLabel());
+    }
+
 }

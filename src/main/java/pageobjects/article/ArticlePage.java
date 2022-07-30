@@ -3,6 +3,8 @@ package pageobjects.article;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import pageobjects.user.UserPage;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
