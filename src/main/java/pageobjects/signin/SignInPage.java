@@ -8,7 +8,6 @@ public class SignInPage extends BasePage {
     private final By emailInput = By.cssSelector("input[placeholder='Email']");
     private final By passwordInput = By.cssSelector("input[placeholder='Password']");
     private final By sumbitbutton = By.cssSelector("button[type='submit']");
-    private final By settingsButton = By.cssSelector("a[href='#settings']");
     private final By newAccount = By.xpath("//a[text()='Need an account?']");
 
     public SignInPage(WebDriver driver) {

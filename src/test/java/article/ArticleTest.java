@@ -1,14 +1,11 @@
 package article;
 
 import base.BaseTest;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.article.ArticlePage;
 import pageobjects.article.PostCommentPage;
-import pageobjects.profile.PerfilPage;
-import pageobjects.user.UserPage;
+import pageobjects.profile.ProfilePage;
 import utilities.DataProviders;
 
 import java.time.Duration;
@@ -16,8 +13,7 @@ import java.time.Duration;
 public class ArticleTest extends BaseTest {
     private ArticlePage articlePage;
     private PostCommentPage postCommentPage;
-    private UserPage userPage;
-    private PerfilPage perfilPage;
+    private ProfilePage profilelPage;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -28,8 +24,7 @@ public class ArticleTest extends BaseTest {
     protected void initPages() {
         articlePage = new ArticlePage(driver);
         postCommentPage = new PostCommentPage(driver);
-        userPage = new UserPage(driver);
-        perfilPage=new PerfilPage(driver);
+        profilelPage = new ProfilePage(driver);
     }
 
     @Test(groups = {regression})
@@ -37,7 +32,7 @@ public class ArticleTest extends BaseTest {
         articlePage.verifyPage();
     }
 
-   @Test(groups = {regression})
+    @Test(groups = {regression})
     public void verifyTitleIsDisplayed() {
         var articles = new DataProviders().getArticleData();
         articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
@@ -64,8 +59,8 @@ public class ArticleTest extends BaseTest {
         commonFlows.fillArticle();
         postCommentPage.clickOnDeleteArticleButton();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        perfilPage.clickOnHaveAccountlink();
+        profilelPage.clickOnUsernameImg();
         var articles = new DataProviders().getArticleData();
-        perfilPage.verifyArticleWasDelete(articles.getTitulo());
+        profilelPage.verifyArticleWasDelete(articles.getTitulo());
     }
 }

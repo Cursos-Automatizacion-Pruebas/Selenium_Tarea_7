@@ -22,17 +22,17 @@
              <package name="signin"/>
          </packages>
      </test>-->
-    <!-- <test name="settings">
-         <packages>
-             <package name="settings"/>
-         </packages>
-     </test>-->
-    <test name="article">
+    <test name="settings">
+        <packages>
+            <package name="settings"/>
+        </packages>
+    </test>
+    <!--<test name="article">
         <packages>
             <package name="article"/>
         </packages>
     </test>
-    <!--<test name="PostCommentTest">
+    <test name="PostCommentTest">
        <packages>
            <package name="PostCommentTest"/>
        </packages>

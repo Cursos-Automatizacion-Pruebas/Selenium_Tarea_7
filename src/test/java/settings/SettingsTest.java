@@ -15,7 +15,6 @@ public class SettingsTest extends BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        //commonFlows.loginValidUser();
         commonFlows.goToSettings();
     }
 
@@ -31,13 +30,13 @@ public class SettingsTest extends BaseTest {
         settingsPage.verifyPage();
     }
 
-    /*@Test(groups = {regression})
-    public void verifyHomePageIsDisplayed(){
+    @Test(groups = {regression})
+    public void verifyHomePageIsDisplayed() {
         userPage.waitPageToLoad();
         userPage.clickOnSettingsButton();
         settingsPage.clickOnLogoutButton();
         homePage.waitPageToLoad();
-    }*/
+    }
 
     @Test(groups = {regression})
     public void verifyBioIsDisplayed() {
@@ -48,4 +47,6 @@ public class SettingsTest extends BaseTest {
         settingsPage.waitPageToLoad();
         settingsPage.verifyBioText(settings.getBio());
     }
+
+
 }

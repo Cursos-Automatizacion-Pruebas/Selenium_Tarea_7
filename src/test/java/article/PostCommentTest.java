@@ -1,4 +1,4 @@
-package settings;
+package article;
 
 import base.BaseTest;
 import com.automation.remarks.video.annotations.Video;

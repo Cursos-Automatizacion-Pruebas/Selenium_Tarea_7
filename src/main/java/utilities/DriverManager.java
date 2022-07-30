@@ -26,9 +26,7 @@ public class DriverManager {
         switch (browser) {
             case "CHROME":
                 ChromeDriverManager.chromedriver().setup();
-                //ChromeOptions option = new ChromeOptions();
-                //option.addArguments("--headless");
-                return new ChromeDriver();//option);
+                return new ChromeDriver();
             case "EDGE":
                 EdgeDriverManager.edgedriver().setup();
                 return new EdgeDriver();

@@ -11,12 +11,10 @@ public class CommentsModel {
     private String coments;
 
     public String getKey() {
-        System.out.println("valor column key: " + this.key);
         return key;
     }
 
     public String getComments() {
-        System.out.println("valor column comment: " + this.coments);
         return coments;
     }
 }

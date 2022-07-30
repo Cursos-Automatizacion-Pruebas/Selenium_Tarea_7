@@ -4,12 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 public class PostCommentPage extends BasePage {
     private String title;
@@ -18,8 +13,8 @@ public class PostCommentPage extends BasePage {
     private final By postCommentButtton = By.cssSelector("Button[type='submit']");
     private final By viewComment = By.cssSelector("p[class='card-text']");
     private final By deleteButton = By.cssSelector("i[class='ion-trash-a']");
-    private final By editArticleButton= By.cssSelector(".btn-outline-secondary");
-    private final By deleteArticleButton= By.cssSelector(".btn-outline-danger");
+    private final By editArticleButton = By.cssSelector(".btn-outline-secondary");
+    private final By deleteArticleButton = By.cssSelector(".btn-outline-danger");
 
     private By titleLabel() {
         var locator = String.format("//h1[text()='%s']", title);
@@ -106,6 +101,4 @@ public class PostCommentPage extends BasePage {
         log.info("Verifying Title is displayed");
         waitVisibility(titleLabel());
     }
-
-
 }

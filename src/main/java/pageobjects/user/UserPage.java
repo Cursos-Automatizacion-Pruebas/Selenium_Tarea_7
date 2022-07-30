@@ -8,8 +8,6 @@ import org.testng.Assert;
 public class UserPage extends BasePage {
 
     private String username;
-    private String email;
-    private String password;
 
     private final By settingsButton = By.cssSelector("a[href='#settings']");
     private final By newPost = By.cssSelector("a[href='#editor']");
@@ -56,10 +54,4 @@ public class UserPage extends BasePage {
         log.info("Clicking on new post Button");
         click(newPost);
     }
-
-    public void clickOnUserName() {
-        log.info("Clicking on user name Button");
-        click(usernameLabel());
-    }
-
 }

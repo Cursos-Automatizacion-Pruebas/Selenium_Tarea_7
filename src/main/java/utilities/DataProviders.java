@@ -19,16 +19,6 @@ public class DataProviders {
         return commentsMap.get("1");
     }
 
-    /*public CredentialsModel getLockedCredentials() {
-        log.debug("Cogiendo las credenciales inválidas");
-        var credentialsMap = new MapParser().getCredentialsMap();
-        return credentialsMap.get("locked");
-    }
-
-    public String getLockedMessage() {
-        return "Epic sadface: Sorry, this user has been locked out.";
-    }*/
-
     public UserDataModel getUserData() {
         return new UserDataModel();
     }

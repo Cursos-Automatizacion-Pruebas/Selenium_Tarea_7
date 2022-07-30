@@ -4,12 +4,11 @@ import org.openqa.selenium.WebDriver;
 import pageobjects.Home.HomePage;
 import pageobjects.article.ArticlePage;
 import pageobjects.article.PostCommentPage;
+import pageobjects.profile.ProfilePage;
 import pageobjects.settings.SettingsPage;
 import pageobjects.signin.SignInPage;
 import pageobjects.signup.SignUpPage;
 import pageobjects.user.UserPage;
-
-import java.time.Duration;
 
 public class CommonFlows {
     private final Logs log = new Logs();
@@ -65,12 +64,21 @@ public class CommonFlows {
 
     public void fillArticle() {
         var articlePage = new ArticlePage(driver);
-        var postCommentPage= new PostCommentPage(driver);
+        var postCommentPage = new PostCommentPage(driver);
         var articles = new DataProviders().getArticleData();
 
         articlePage.fillArticle(articles.getTitulo(), articles.getAsunto(), articles.getDetalle(), articles.getEtiqueta());
         postCommentPage.waitPageToLoad();
         postCommentPage.setTitle(articles.getTitulo());
         postCommentPage.getTextTitle();
+    }
+
+    public void goToProfile() {
+        loginValidUser();
+        var userpage = new UserPage(driver);
+        var profilePage = new ProfilePage(driver);
+        userpage.waitPageToLoad();
+        profilePage.clickOnUsernameImg();
+        profilePage.waitPageToLoad();
     }
 }
